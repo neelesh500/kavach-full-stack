@@ -1,0 +1,32 @@
+{
+  "name": "sss-exam-auth-backend",
+  "version": "1.0.0",
+  "description": "Threshold-based (SSS) multi-custodian authentication backend for paper leak prevention",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "setup": "node scripts/setup.js",
+    "test": "node scripts/test-flow.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@socket.io/redis-adapter": "^8.3.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.6.2",
+    "helmet": "^8.3.0",
+    "hpp": "^0.2.3",
+    "ioredis": "^6.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.9.2",
+    "qrcode": "^1.5.4",
+    "secrets.js-grempe": "^2.0.0",
+    "socket.io": "^4.8.3",
+    "speakeasy": "^2.0.0",
+    "winston": "^3.19.0",
+    "xss-clean": "^0.1.4"
+  }
+}
