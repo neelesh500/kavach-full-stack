@@ -1,6 +1,10 @@
 let io = null;
 
 function initSocket(server) {
+  if (process.env.VERCEL) {
+    io = { emit: () => { } };
+    return io;
+  }
   const { Server } = require('socket.io');
   io = new Server(server, {
     cors: { origin: '*', methods: ['GET', 'POST'] }
@@ -12,8 +16,12 @@ function initSocket(server) {
 }
 
 function getIo() {
+  if (process.env.VERCEL && !io) {
+    return { emit: () => { } };
+  }
   if (!io) {
-    throw new Error('Socket.io not initialized yet');
+    // Graceful fallback incase serverless misses init
+    return { emit: () => { } };
   }
   return io;
 }
